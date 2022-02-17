@@ -16,7 +16,7 @@ class RegisterBusinessTest {
         Exception exception= assertThrows(RuntimeException.class, ()-> {
             business.register(null,null);
         });
-        assertEquals("speaker is null", exception.getMessage());
+        assertEquals("Speaker is null", exception.getMessage());
     }
 
     @Test
