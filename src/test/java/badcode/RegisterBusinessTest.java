@@ -55,4 +55,18 @@ class RegisterBusinessTest {
         });
         assertEquals("Email is required.",exception.getMessage());
     }
+
+    @Test
+    @DisplayName("Speaker doesn't meet our standard rules = null ดังนั้นจะ โยน argumentNullexception ออกมา " + "พร้อมกับคำว่า Speaker doesn't meet our standard rules.")
+    public void case05() {
+        RegisterBusiness business = new RegisterBusiness();
+        Exception exception =  assertThrows(RuntimeException.class, () -> {
+            Speaker speaker = new Speaker();
+            speaker.setFirstName("jirawan");
+            speaker.setLastName("chuapradit");
+            speaker.setEmail("jirawan.c@kbtg.tech");
+            business.register(null, speaker);
+        });
+        assertEquals("Speaker doesn't meet our standard rules.", exception.getMessage());
+    }
 }
