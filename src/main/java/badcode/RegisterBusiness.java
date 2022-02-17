@@ -25,11 +25,11 @@ public class RegisterBusiness {
         if( speaker == null) {
             throw new RuntimeException("speaker is null");
         }
-        if (speaker.getFirstName() == null || speaker.getFirstName().trim().equals("")) {
+        if (isNullOrEmpty(speaker.getFirstName())){
             throw new ArgumentNullException("First name is required.");
-        } else if (speaker.getLastName() == null || speaker.getLastName().trim().equals("")) {
+        } else if (isNullOrEmpty(speaker.getLastName())){
             throw new ArgumentNullException("Last name is required.");
-        } else if (speaker.getEmail() == null || speaker.getEmail().trim().equals("")) {
+        } else if (isNullOrEmpty(speaker.getEmail())) {
             throw new ArgumentNullException("Email is required.");
         }
         // Your Tasks ...
@@ -38,7 +38,9 @@ public class RegisterBusiness {
             throw new SpeakerDoesntMeetRequirementsException("Speaker doesn't meet our standard rules.");
         }
     }
-
+    private boolean isNullOrEmpty(String input) {
+        return input == null || "".equals(input);
+    }
     int getFee(int experienceYear) {
         int fee = 0;
         if (experienceYear <= 1) {
