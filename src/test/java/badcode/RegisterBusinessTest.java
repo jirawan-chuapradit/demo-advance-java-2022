@@ -69,4 +69,18 @@ class RegisterBusinessTest {
         });
         assertEquals("Speaker doesn't meet our standard rules.", exception.getMessage());
     }
+
+    @Test
+    @DisplayName("exp = null ดังนั้นจะ โยน argumentNullexception ออกมา " + "พร้อมกับคำว่า Can't save a speaker.")
+    public void case06() {
+        RegisterBusiness business = new RegisterBusiness();
+        Exception exception =  assertThrows(RuntimeException.class, () -> {
+            Speaker speaker = new Speaker();
+            speaker.setFirstName("jirawan");
+            speaker.setLastName("chuapradit");
+            speaker.setEmail("jirawan.c@gmail.com");
+            business.register(null, speaker);
+        });
+        assertEquals("Can't save a speaker.", exception.getMessage());
+    }
 }
