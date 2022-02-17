@@ -6,9 +6,9 @@ public class RegisterBusiness {
 
     public Integer register(SpeakerRepository repository, Speaker speaker) {
         Integer speakerId;
-        String[] domains = {"gmail.com", "live.com"};
 
-        validateSpeaker(speaker, domains);
+
+        validateSpeaker(speaker);
         int exp = speaker.getExp();
         speaker.setRegistrationFee(getFee(exp));
         try {
@@ -20,7 +20,8 @@ public class RegisterBusiness {
         return speakerId;
     }
 
-    private void validateSpeaker(Speaker speaker, String[] domains) {
+    private void validateSpeaker(Speaker speaker) {
+        String[] domains = {"gmail.com", "live.com"};
         if( speaker == null) {
             throw new RuntimeException("speaker is null");
         }
