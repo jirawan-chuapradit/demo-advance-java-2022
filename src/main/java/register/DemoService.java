@@ -13,9 +13,6 @@ public class DemoService {
 
 }
 
-class DB {
-    int increaseOne(int id) {
-        // return id + 1
-        throw new RuntimeException("Under construction");
-    }
+interface DB {
+    int increaseOne(int id) ;
 }
