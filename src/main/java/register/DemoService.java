@@ -1,15 +1,13 @@
 package register;
 
 public class DemoService {
+    private DB db;
 
-    /**
-     * 1 => Result = 2
-     * 2 => Result = 3
-     * @param id
-     * @return
-     */
+    public DemoService(DB db) {
+        this.db = db;
+    }
+
     public String compute(int id) {
-        DB db = new DB();
         return "Result = " + db.increaseOne(id);
     }
 
